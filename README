@@ -1,0 +1,20 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=1554
+
+This plugin is superseded by vimscript#1609.
+
+Omnicompletions which uses tags database created by "gnat xref -v >tags".
+
+It is a lot simpler then the other omnicompletion plugins which is quite helpfull if you plan to write your own.
+
+NOTE: "gnat xref -v" is very tricky to use as it has almost no diagnostic output - If nothing is printed then usualy the parameters are wrong. Here some important tips:
+
+1) You need to compile your code first and use the "-aO" option to point to your .ali files.
+2) "gnat xref -v ../Include/adacl.ads" won't work - use  the "gnat xref -v -aI../Include adacl.ads" instead.
+3) "gnat xref -v -aI../Include *.ad?" won't work - use "cd ../Include" and then "gnat xref -v *.ad?"
+4) Project manager support is completely broken - don't even try "gnat xref -Padacl.gpr".
+5) VIM is faster when the tags file is sorted - use "sort --unique --ignore-case --output=tags tags" .
+6) Remember to insert "!_TAG_FILE_SORTED	2	%sort ui" as first line.
+
+Reports errors to: http://code.google.com/p/vim-scripts/issues/list
+Discuss improvements on: http://groups.google.com/group/vim_scripts
+
